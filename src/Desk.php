@@ -124,6 +124,8 @@ class Desk implements Serializable
     public function clear()
     {
         $this->figures = new SplObjectStorage();
+
+        $this->desk = [];
         for ($x = 0 ; $x < $this->size ; $x++) {
             for ($y = 0 ; $y < $this->size ; $y++) {
                 $this->desk[$x][$y] = null;
@@ -166,7 +168,7 @@ class Desk implements Serializable
      */
     protected function serializeFigure(AbstractFigure $figure)
     {
-        // class names can be replaces with some constants for consistency
+        // class names can be replaced with some constants for consistency
         return get_class($figure);
     }
 
